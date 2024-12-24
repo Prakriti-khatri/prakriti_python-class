@@ -1,17 +1,15 @@
-my_list=['1','2','3','a','b','c']
-my_list.append('d')
-my_list.remove('2')
-print(len(my_list))
-print(my_list)
+#palindrome
+def is_palindrome(p):
+    return p == p [::-1]
+print(is_palindrome("abc"))#true
+print(is_palindrome("aabbaa"))#true
+print(is_palindrome("abbbb"))#false
+print(is_palindrome("baabbb"))#false
 
 
-my_tuple=('10','20','30','40','50')
-print(my_tuple[2])
-p_1=list(my_tuple)
-p_1[3]=35
-b_1=tuple(p_1)
-print(b_1)
-
-
-
-print("surrender")[::-1]
+#area of circle
+def calculate_area_of_circle(a):
+    return 3.14 *radius *radius
+radius = float(input("enter the radius of area"))
+area= calculate_area_of_circle(radius)
+print(f"the area of the circle with radius{radius}is:{area}")
