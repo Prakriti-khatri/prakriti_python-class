@@ -51,8 +51,28 @@ def setup_mission():
     available_crews=int(input("enter available crew"))
     print("setup completed....")
     return available_crews, available_food
+#check battries over hundred
+def get_charged_battries():
+    batteries=[50,30,4,45,12,18,30]
+    minimum_battery_power=20
+    usable_battery_power=0
+    usable_battery_count=0
+    for battery in batteries:
+        if battery>minimum_battery_power:
+            usable_battery_power+=battery
+            usable_battery_count=usable_battery_count+1 
+            if usable_battery_power>=100:
+                return usable_battery_power,usable_battery_count
+            
+   
  
-
+def decrypt_alien_message(alien_message):
+    human_message=alien_message[::-1]
+    return human_message
+def food_divide_equally(food,crews_member):
+    equally_foods=len(food)//crews_member
+    remaining_food=len(food)% crews_member
+    return equally_foods,remaining_food
 def alien_attack_game():
 
     print("welcome to alien attack game")
@@ -63,15 +83,18 @@ def alien_attack_game():
    
     print("WELCOME TO THE MARS!!!")
     print("your battery is dead please charge the battery")
-    batteries=[50,30,4,45,12,18,30]
-minimum_battery_power=20
-usable_battery_power=0
-usable_battery_count=0
-for battery in batteries:
-    if battery>minimum_battery_power:
-        usable_battery_power+=battery
-        usable_battery_count=usable_battery_count+1
-        print(f"there are{usable_battery_count}batteries which can be used to generate{usable_battery_power}")
+    usable_battery_power,usable_battery_count=get_charged_battries()
+    print("hurry!!!your battery is charged")
+    print("oops...alien has arrived saying:")
+    print("rednerrus")
+    decrypted_text=decrypt_alien_message("rednerrus")
+    print(f"alien is saying:{decrypted_text}")
+    print("alien has captured all astronauts")
+    print("if astronaut wants to escape they have divide each food and give the remaining food")
+    equally_divide,remaining_food=food_divide_equally (foods,crews_number)
+    (f"you have{equally_divide}food divide equally and remaining= {remaining_food}")
+    print("okey...now you can go to earth")
+    
 
 
    
@@ -80,6 +103,7 @@ for battery in batteries:
     print("mission completed")
 
 alien_attack_game()
+equally_divide, food_divide_equally(food,crews_member)
 
 
 
