@@ -1,25 +1,34 @@
-first_number =int(input("enter your first number :"))
-second_number =int(input("enter your second number :"))
-print("Addition = ", first_number +second_number)
-user_choice=input("""
-                  please choose you option
-                  +for addition
-                  -for substration
-                  """)
-if user_choice =="+":
-     print("addition =", first_number+second_number)
-elif user_choice == "-":
-     print("substraction=", first_number- second_number)
-     
+class Vehicle():
 
-first_number =int(input("enter your first number"))
-second_number =int(input("enter your second number"))
-print("multiplication =",first_number * second_number)
+    def drive(self):
+        print("Vehicle is driving")
+    
+    def new_fn(self):
+        print("my new fn")
 
-first_number =int(input("enter your first number"))
-second_number =int(input("enter your second number"))
-print("substraction ",first_number - second_number)
+class Car(Vehicle):
+    pass
+car=Car()
+print(car.drive())
 
-first_number =int(input("enter your first number"))
-second_number =int(input("enter your second number"))
-print("division ",first_number / second_number)
+class BankAccount:
+    def init(self,name):
+        self._balance=0
+        self.name=name
+    def deposit(self,amount):
+        self._balance+=amount
+    def withdraw(self,amount):
+        self._balance-=amount
+    def get_balance(self):
+        return self._balance
+    def str(self):
+        return f"Name:{self.name} and Balance:Hidden"
+    
+prakriti=BankAccount("prakriti")
+prakriti.deposit(10000)
+print(prakriti)
+print(prakriti.get_balance)
+prakriti.withdraw(100)
+prakriti.deposit(500)
+prakriti.withdraw(600)
+print(prakriti.get_balance())
